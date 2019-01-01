@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexMapGeneration", "HexMapGeneration\HexMapGeneration.csproj", "{BEFE7D20-4362-4F44-BC4D-D8461EB60A1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A2A9CC50-F905-45D2-BED1-48E4C6347C77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEFE7D20-4362-4F44-BC4D-D8461EB60A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEFE7D20-4362-4F44-BC4D-D8461EB60A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEFE7D20-4362-4F44-BC4D-D8461EB60A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEFE7D20-4362-4F44-BC4D-D8461EB60A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A9CC50-F905-45D2-BED1-48E4C6347C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A9CC50-F905-45D2-BED1-48E4C6347C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A9CC50-F905-45D2-BED1-48E4C6347C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A9CC50-F905-45D2-BED1-48E4C6347C77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
