@@ -1,6 +1,6 @@
 using System;
 
-namespace HexMapGeneration.Utilities
+namespace HexMapGeneration.DataModels
 {
 	public enum Direction
 	{

@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using HexMapGeneration.Controllers;
+using HexMapGeneration.DataAccess;
+using HexMapGeneration.Services;
+using HexMapGeneration.Testable;
 using HexMapGeneration.Utilities;
 
 namespace HexMapGeneration
@@ -11,11 +14,16 @@ namespace HexMapGeneration
 	{
 		private void App_OnStartup(object sender, StartupEventArgs e)
 		{
-			// Change which config file is referenced here or change the Map Config constant
-			var mapGenerator = new MapGenerator(Constants.AltMapConfig);
-			var mapService = new MapService(mapGenerator);
+			var file = new File();
+			var jsonConvert = new JsonConvert();
 
-			var controller = new MapController(mapService);
+			var configAccess = new ConfigAccess(Constants.AltMapConfig, jsonConvert, file);
+
+			var offsetService = new OffsetService(configAccess);
+			var mapDimensionService = new MapDimensionService(configAccess, offsetService);
+			var mapGeneratorService = new MapGeneratorService(configAccess, offsetService);
+
+			var controller = new MapController(mapDimensionService, mapGeneratorService);
 			controller.Start();
 		}
 	}

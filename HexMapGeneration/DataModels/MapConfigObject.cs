@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HexMapGeneration.Utilities
+namespace HexMapGeneration.DataModels
 {
-	public class MapConfigObject
+	public class MapConfigObject : IMapConfigObject
 	{
 		[JsonProperty("Tiles")]
 		public IList<TileConfig> ConfigSummary { get; private set; }
@@ -24,7 +24,7 @@ namespace HexMapGeneration.Utilities
 		public int Offset { get; private set; }
 	}
 
-	public class TileConfig
+	public class TileConfig : ITileConfig
 	{
 		[JsonProperty("Image")]
 		public string ImagePath { get; private set; }

@@ -1,4 +1,4 @@
-namespace HexMapGeneration.Utilities
+namespace HexMapGeneration.DataModels
 {
 	public class Offset
 	{

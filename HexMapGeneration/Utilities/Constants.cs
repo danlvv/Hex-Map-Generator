@@ -4,7 +4,7 @@ namespace HexMapGeneration.Utilities
 {
 	public static class Constants
 	{
-		public static readonly string BaseDirectory = Environment.CurrentDirectory + @"\..\..\";
+		public static readonly string BaseDirectory = Environment.CurrentDirectory + @"\..\..\..\HexMapGeneration\";
 
 		public static readonly string ImagesDirectory = BaseDirectory + @"Images\";
 
@@ -12,5 +12,7 @@ namespace HexMapGeneration.Utilities
 		public static readonly string MapConfig = BaseDirectory + @"ConfigFiles\MagicRealmMapConfigFile.json";
 
 		public static readonly string AltMapConfig = BaseDirectory + @"ConfigFiles\SettlersMapConfigFile.json";
+
+		public static readonly string ErrorLog = BaseDirectory + @"..\ErrorLog.txt";
 	}
 }

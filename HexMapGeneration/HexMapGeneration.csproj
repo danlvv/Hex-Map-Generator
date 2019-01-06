@@ -56,16 +56,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="DataAccess\ConfigAccess.cs" />
+    <Compile Include="DataAccess\ConfigAccessException.cs" />
+    <Compile Include="DataAccess\IConfigAccess.cs" />
     <Compile Include="DataModels\CanvasElement.cs" />
+    <Compile Include="DataModels\Direction.cs" />
     <Compile Include="DataModels\Hexagon.cs" />
     <Compile Include="DataModels\ICanvasElement.cs" />
+    <Compile Include="DataModels\IMapConfigObject.cs" />
+    <Compile Include="DataModels\MapConfigObject.cs" />
     <Compile Include="DataModels\MapTile.cs" />
+    <Compile Include="DataModels\Offset.cs" />
+    <Compile Include="Services\IMapDimensionService.cs" />
+    <Compile Include="Services\IMapGeneratorService.cs" />
+    <Compile Include="Services\IOffsetService.cs" />
+    <Compile Include="Services\MapDimensionService.cs" />
+    <Compile Include="Services\MapGeneratorService.cs" />
+    <Compile Include="Services\OffsetService.cs" />
+    <Compile Include="Testable\File.cs" />
+    <Compile Include="Testable\JsonConvert.cs" />
+    <Compile Include="Testable\SystemParameters.cs" />
     <Compile Include="Utilities\Constants.cs" />
-    <Compile Include="Utilities\Direction.cs" />
-    <Compile Include="Utilities\MapConfigObject.cs" />
-    <Compile Include="Utilities\MapGenerator.cs" />
-    <Compile Include="Utilities\MapService.cs" />
-    <Compile Include="Utilities\Offset.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

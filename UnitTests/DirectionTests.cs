@@ -1,5 +1,5 @@
 using System;
-using HexMapGeneration.Utilities;
+using HexMapGeneration.DataModels;
 using Xunit;
 
 namespace UnitTests
