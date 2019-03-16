@@ -17,21 +17,69 @@ namespace HexMapGeneration.Services
 
 		public double[] GetMapDimensions()
 		{
-			var mapConfig = _configAccess.GetConfig();
-			var cornerOffsets = _offsetService.GetCornerOffsets();
+			 var mapConfig = _configAccess.GetConfig();
+			 var cornerOffsets = _offsetService.GetCornerOffsets();
 
-			var smallTileWidth = cornerOffsets.First(p => p.Direction == Direction.NE).X -
-			                     cornerOffsets.First(p => p.Direction == Direction.NW).X;
+			 var smallTileWidth = cornerOffsets.First(p => p.Direction == Direction.NE).X -
+		                         cornerOffsets.First(p => p.Direction == Direction.NW).X;
 
-			var width = mapConfig.TilesWide / 2 + 1;
+			 double maxPanningX = mapConfig.Width + smallTileWidth;
+		    foreach (var tile in mapConfig.ConfigSummary)
+		    {
+		        maxPanningX += WidthAdjustment(tile.Expand_Direction, smallTileWidth);
+		    }
 
-			var maxPanningX = mapConfig.TilesWide % 2 == 0
-				? width * smallTileWidth + width * mapConfig.Width
-				: width * smallTileWidth - smallTileWidth + width * mapConfig.Width;
-
-			var maxPanningY = mapConfig.TilesHigh * mapConfig.Height;
+		    double maxPanningY = mapConfig.Height;
+		    foreach (var tile in mapConfig.ConfigSummary)
+		    {
+		        maxPanningY += HeightAdjustment(tile.Expand_Direction, mapConfig.Height);
+		    }
 
 			return new [] { maxPanningX, maxPanningY};
 		}
+
+	    private double WidthAdjustment(Direction direction, double width)
+	    {
+	        if (direction == Direction.NE ||
+	            direction == Direction.SE)
+	        {
+	            return width;
+	        }
+
+	        if (direction == Direction.NW ||
+	            direction == Direction.SW)
+	        {
+	            return -width;
+	        }
+
+	        return 0.0;
+	    }
+
+	    private double HeightAdjustment(Direction direction, double height)
+	    {
+	        if (direction == Direction.NE ||
+	            direction == Direction.NW)
+	        {
+	            return -height / 2.0;
+	        }
+
+	        if (direction == Direction.SE ||
+	            direction == Direction.SW)
+	        {
+	            return height / 2.0;
+	        }
+
+	        if (direction == Direction.N)
+	        {
+	            return -height;
+	        }
+
+	        if (direction == Direction.S)
+	        {
+                return height;
+	        }
+
+	        return 0.0;
+	    }
 	}
 }

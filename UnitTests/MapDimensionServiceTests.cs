@@ -21,23 +21,29 @@ namespace UnitTests
 				new Offset(372, 0, Direction.NE)
 			};
 
-			var mockConfigObject = mockRepo.Create<MapConfigObject>();
+			var mockConfigObject = mockRepo.Create<IMapConfigObject>();
 			mockConfigObject.Setup(o => o.Width)
 				.Returns(496);
 			mockConfigObject.Setup(o => o.Height)
 				.Returns(430);
-			mockConfigObject.Setup(o => o.TilesWide)
-				.Returns(2);
-			mockConfigObject.Setup(o => o.TilesHigh)
-				.Returns(2);
+            
+            mockConfigObject.Setup(o => o.ConfigSummary)
+		        .Returns(new List<TileConfig>
+                {
+                    new TileConfig { Expand_Direction = Direction.NW },
+                    new TileConfig { Expand_Direction = Direction.NE },
+                    new TileConfig { Expand_Direction = Direction.SE },
+                    new TileConfig { Expand_Direction = Direction.SW },
+                });
 
 			var smallTileWidth = offsets.First(p => p.Direction == Direction.NE).X -
 			                     offsets.First(p => p.Direction == Direction.NW).X;
 
-			var width = 2 / 2 + 1;
+            // There are two wests and two easts, so they simply cancel out.
+		    var maxPanningX = 496 + smallTileWidth;
 
-			var maxPanningX = width * smallTileWidth + width * 496;
-			var maxPanningY = 2 * 430;
+            // There are two norths and two souths, so they simply cancel out.
+			var maxPanningY = 430;
 
 			var configAccess = mockRepo.Create<IConfigAccess>();
 			configAccess.Setup(c => c.GetConfig())

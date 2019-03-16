@@ -11,10 +11,6 @@ namespace HexMapGeneration.DataModels
 		int Height { get; }
 
 		int Offset { get; }
-
-		int TilesHigh { get; }
-
-		int TilesWide { get; }
 	}
 
 	public interface ITileConfig

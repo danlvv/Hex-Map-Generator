@@ -6,11 +6,11 @@
   The map configuration file is read into the generator to auto generate each tile and their positions in relation to each other.
   In order to use the tool to generate your own custom map you simply need to create a new json file in this directory using
   the template show below. 
-  
+
   The images you wish to be drawn within the hex tiles should be placed in the Images directory above. Each of these images must
   adhear to the Image dimension requirements below. The shape of these images beforehand does not matter, 
   the hexagons will clip the image to the correct shape.
-  
+
   To understand how to use the Expand_direction property refer to the Hex Map Expansion Model below.
 </p>
 
@@ -61,8 +61,6 @@
         "Offset": ,                           // The pixel distance between the hexagons
         "Width": ,                            // The pixel width of the image file
         "Height": ,                           // The pixel height of the image file
-        "Tiles_wide": ,                       // The max number of tiles wide on the same y coordinate
-        "Tiles_high":                         // The max number of tiles high on the same x coordinate
       }
     </code>
   </pre>

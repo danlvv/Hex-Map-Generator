@@ -14,12 +14,6 @@ namespace HexMapGeneration.DataModels
 		[JsonProperty("Height")]
 		public int Height { get; private set; }
 
-		[JsonProperty("Tiles_wide")]
-		public int TilesWide { get; private set; }
-
-		[JsonProperty("Tiles_high")]
-		public int TilesHigh { get; private set; }
-
 		[JsonProperty("Offset")]
 		public int Offset { get; private set; }
 	}
@@ -38,6 +32,6 @@ namespace HexMapGeneration.DataModels
 			set { Expand_Direction = DirectionConverter.Convert(value); }
 		}
 
-		public Direction Expand_Direction { get; private set; }
+		public Direction Expand_Direction { get; internal set; }
 	}
 }
